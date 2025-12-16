@@ -23,7 +23,7 @@ export default function Home() {
     setErrorMessage("")
 
     try {
-      const response = await fetch("http://localhost:8000/scan", {
+      const response = await fetch("/api/scan", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -50,7 +50,7 @@ export default function Home() {
   }
 
   return (
-    <main className="min-h-screen bg-gradient-to-b from-white via-blue-50/30 to-teal-50/20">
+    <main className="min-h-screen">
       {currentScreen === "hero" && <HeroScreen onStart={() => setCurrentScreen("permission")} />}
       {currentScreen === "permission" && <PermissionScreen onAllow={() => setCurrentScreen("scanning")} />}
       {currentScreen === "scanning" && <ScanningScreen onComplete={handleScanComplete} />}

@@ -6,6 +6,12 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
+  experimental: {
+    turbo: {
+      // Ensure Turbopack treats this directory as the workspace root
+      root: process.cwd(),
+    },
+  },
 }
 
 export default nextConfig
